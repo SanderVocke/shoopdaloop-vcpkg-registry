@@ -10,21 +10,6 @@ vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
 )
 vcpkg_cmake_install()
-
-file(GLOB files "${CURRENT_PACKAGES_DIR}/lib/cmake/zita-resampler/*.cmake")
-foreach(file ${files})
-  get_filename_component(filename ${file} NAME)
-  file(RENAME "${file}" "${CURRENT_PACKAGES_DIR}/share/zita-resampler/cmake/${filename}")
-endforeach()
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/lib/cmake")
-
-file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/debug/share/zita-resampler/cmake)
-file(GLOB files "${CURRENT_PACKAGES_DIR}/debug/lib/cmake/zita-resampler/*.cmake")
-foreach(file ${files})
-  get_filename_component(filename ${file} NAME)
-  file(RENAME "${file}" "${CURRENT_PACKAGES_DIR}/debug/share/zita-resampler/cmake/${filename}")
-endforeach()
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/lib/cmake")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
 set(VCPKG_POLICY_SKIP_COPYRIGHT_CHECK enabled)
