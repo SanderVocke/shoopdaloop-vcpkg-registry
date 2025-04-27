@@ -15,5 +15,7 @@ file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 set(VCPKG_POLICY_SKIP_COPYRIGHT_CHECK enabled)
 
 vcpkg_copy_pdbs()
-vcpkg_cmake_config_fixup()
+vcpkg_cmake_config_fixup(
+    CONFIG_PATH "share/zita-resampler/cmake"
+)
 # vcpkg_fixup_pkgconfig()
